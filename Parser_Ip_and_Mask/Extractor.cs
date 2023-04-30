@@ -9,7 +9,7 @@ namespace Parser_Ip_and_Mask
 {
     internal static class Extractor
     {
-        public static void ExtractIpandMask(string path,DataGridView dgv,TextBox log)
+        public static void ExtractIpAndMask(string path,DataGridView dgv,TextBox log)
         {
             var dirs = Directory.GetDirectories(path);
 
@@ -17,35 +17,37 @@ namespace Parser_Ip_and_Mask
             {
                 for (int i = 1; i <= 2; i++)
                 {
-                    var lastFile = Directory.GetFiles(dir, $"*-rt-*-{i}-*").
-                        Where(f => !f.Contains("SM")).
-                        MaxBy(f => File.GetLastWriteTime(f));
+                    var lastFile = GetLastFile(dir, $"*-rt-*-{i}-*");
                     if (lastFile is null)
                         log.AppendText($"{dir} не содержит файла с роутером №{i}" + Environment.NewLine);
                     else
                     { 
-                            var matches = ParseFromFile(lastFile);
-
-                            foreach (Match match in matches)
-                            {
-                                dgv.Rows.Add(
-                                    dir.Split("\\")[^1],// имя станции
-                                    match.Groups["ip"].Value,
-                                    match.Groups["mask"].Value
-                                );
-
-                            }
+                        var matches = ParseFromFile(lastFile, 
+                            @"forwarding\sTM_PS\s+ip\s+address\s(?<ip>\d+.\d+.\d+.\d+)\s+(?<mask>\d+.\d+.\d+.\d+)");
+                        foreach (Match match in matches)
+                        {
+                            dgv.Rows.Add(
+                                dir.Split("\\")[^1],// имя станции
+                                match.Groups["ip"].Value,
+                                match.Groups["mask"].Value
+                            );
+                        }
                      }
                 }
             }
         }
 
-        private static MatchCollection ParseFromFile(string fileName)
+        private static string? GetLastFile(string dir,string pattern)=>
+            Directory.GetFiles(dir, pattern).
+                        Where(f => !f.Contains("SM")).
+                        MaxBy(f => File.GetLastWriteTime(f));
+
+        private static MatchCollection ParseFromFile(string fileName,string regularExpr)
         {
             using (var reader = new StreamReader(fileName))
             {
                 string content = reader.ReadToEnd();
-                var reg = new Regex(@"forwarding\sTM_PS\s+ip\s+address\s(?<ip>\d+.\d+.\d+.\d+)\s+(?<mask>\d+.\d+.\d+.\d+)");
+                var reg = new Regex(regularExpr);
                 return reg.Matches(content);
             }
         }

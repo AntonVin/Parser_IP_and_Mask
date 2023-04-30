@@ -14,7 +14,7 @@ namespace Parser_Ip_and_Mask
         private void btnStart_Click(object sender, EventArgs e)
         { 
             Clear();
-            Extractor.ExtractIpandMask(txtPath.Text,dgvResult,txtLog);
+            Extractor.ExtractIpAndMask(txtPath.Text,dgvResult,txtLog);
             
         }
 
@@ -22,6 +22,11 @@ namespace Parser_Ip_and_Mask
         {
             dgvResult.Rows.Clear();
             txtLog.Clear();
+        }
+
+        private void txtPath_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
