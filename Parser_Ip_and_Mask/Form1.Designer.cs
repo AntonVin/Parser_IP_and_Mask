@@ -38,6 +38,7 @@
             this.Station = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCopy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,11 +138,22 @@
             this.Mask.HeaderText = "Маска";
             this.Mask.Name = "Mask";
             // 
+            // btnCopy
+            // 
+            this.btnCopy.Location = new System.Drawing.Point(116, 12);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(197, 23);
+            this.btnCopy.TabIndex = 8;
+            this.btnCopy.Text = "Копировать IP и маску";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 563);
+            this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.lblPath);
             this.Controls.Add(this.lblLog);
@@ -168,5 +180,6 @@
         private DataGridViewTextBoxColumn Station;
         private DataGridViewTextBoxColumn IP;
         private DataGridViewTextBoxColumn Mask;
+        private Button btnCopy;
     }
 }

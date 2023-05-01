@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Parser_Ip_and_Mask
 {
@@ -27,6 +29,12 @@ namespace Parser_Ip_and_Mask
         private void txtPath_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            var indexesColumns = new int[] { 1, 2 };
+            dgvResult.CopyDataColumns(indexesColumns);
         }
     }
 }
