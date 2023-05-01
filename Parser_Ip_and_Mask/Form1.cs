@@ -26,9 +26,10 @@ namespace Parser_Ip_and_Mask
             txtLog.Clear();
         }
 
-        private void txtPath_TextChanged(object sender, EventArgs e)
+        private void btnCopy_Click(object sender, EventArgs e)
         {
-
+            var indexesColumns = new int[] { 1, 2 };
+            dgvResult.CopyDataColumns(indexesColumns);
         }
 
         private void btnCopy_Click(object sender, EventArgs e)

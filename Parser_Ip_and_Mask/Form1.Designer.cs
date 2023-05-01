@@ -76,7 +76,6 @@
             this.txtPath.Size = new System.Drawing.Size(943, 23);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "D:\\Task2\\BackUpCisco";
-            this.txtPath.TextChanged += new System.EventHandler(this.txtPath_TextChanged);
             // 
             // lblResult
             // 
