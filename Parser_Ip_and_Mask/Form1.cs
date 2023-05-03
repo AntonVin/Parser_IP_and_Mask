@@ -16,7 +16,7 @@ namespace Parser_Ip_and_Mask
         private void btnStart_Click(object sender, EventArgs e)
         { 
             Clear();
-            Extractor.ExtractIpAndMask(txtPath.Text,dgvResult,txtLog);
+            Extractor.ExtractIpAndMask(txtPath.Text,dgvResult,txtLog,txtVrfForwarding.Text);
         }
 
         private void Clear()
@@ -30,6 +30,5 @@ namespace Parser_Ip_and_Mask
             var indexesColumns = new int[] { 1, 2 };
             dgvResult.CopyDataColumns(indexesColumns);
         }
-
     }
 }

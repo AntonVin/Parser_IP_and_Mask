@@ -39,6 +39,8 @@
             this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mask = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtVrfForwarding = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +48,7 @@
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.Location = new System.Drawing.Point(12, 493);
+            this.btnStart.Location = new System.Drawing.Point(12, 533);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(943, 58);
             this.btnStart.TabIndex = 1;
@@ -64,14 +66,14 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(485, 404);
+            this.txtLog.Size = new System.Drawing.Size(485, 400);
             this.txtLog.TabIndex = 2;
             // 
             // txtPath
             // 
             this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPath.Location = new System.Drawing.Point(12, 464);
+            this.txtPath.Location = new System.Drawing.Point(12, 460);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(943, 23);
             this.txtPath.TabIndex = 3;
@@ -97,9 +99,10 @@
             // 
             // lblPath
             // 
-            this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(12, 445);
+            this.lblPath.Location = new System.Drawing.Point(12, 441);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(74, 15);
             this.lblPath.TabIndex = 6;
@@ -119,7 +122,7 @@
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.RowHeadersVisible = false;
             this.dgvResult.RowTemplate.Height = 25;
-            this.dgvResult.Size = new System.Drawing.Size(440, 406);
+            this.dgvResult.Size = new System.Drawing.Size(440, 402);
             this.dgvResult.TabIndex = 7;
             // 
             // Station
@@ -147,11 +150,34 @@
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 486);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "vrf forwarding";
+            // 
+            // txtVrfForwarding
+            // 
+            this.txtVrfForwarding.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtVrfForwarding.Location = new System.Drawing.Point(12, 504);
+            this.txtVrfForwarding.Name = "txtVrfForwarding";
+            this.txtVrfForwarding.Size = new System.Drawing.Size(943, 23);
+            this.txtVrfForwarding.TabIndex = 10;
+            this.txtVrfForwarding.Text = "TM_PS";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 563);
+            this.ClientSize = new System.Drawing.Size(967, 604);
+            this.Controls.Add(this.txtVrfForwarding);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.lblPath);
@@ -180,5 +206,7 @@
         private DataGridViewTextBoxColumn IP;
         private DataGridViewTextBoxColumn Mask;
         private Button btnCopy;
+        private Label label1;
+        private TextBox txtVrfForwarding;
     }
 }

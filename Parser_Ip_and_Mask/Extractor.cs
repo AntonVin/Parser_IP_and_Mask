@@ -9,9 +9,9 @@ namespace Parser_Ip_and_Mask
 {
     internal static class Extractor
     {
-        public static void ExtractIpAndMask(string path,DataGridView dgv,TextBox log)
+        public static void ExtractIpAndMask(string path,DataGridView dgv,TextBox log,string vrf)
         {
-            var dirs = Directory.GetDirectories(path);
+            var dirs = GetDirectories(path);
 
             foreach (var dir in dirs)
             {
@@ -23,7 +23,7 @@ namespace Parser_Ip_and_Mask
                     else
                     { 
                         var matches = ParseFromFile(lastFile, 
-                            @"forwarding\sTM_PS\s+ip\s+address\s(?<ip>\d+.\d+.\d+.\d+)\s+(?<mask>\d+.\d+.\d+.\d+)");
+                            $@"forwarding\s+{vrf}\s+ip\s+address\s(?<ip>\d+.\d+.\d+.\d+)\s+(?<mask>\d+.\d+.\d+.\d+)");
                         foreach (Match match in matches)
                         {
                             dgv.Rows.Add(
@@ -37,6 +37,10 @@ namespace Parser_Ip_and_Mask
             }
         }
 
+        private static string [] GetDirectories(string path)
+        {
+            return Directory.GetDirectories(path);
+        }
         private static string? GetLastFile(string dir,string pattern)=>
             Directory.GetFiles(dir, pattern).
                         Where(f => !f.Contains("SM")).

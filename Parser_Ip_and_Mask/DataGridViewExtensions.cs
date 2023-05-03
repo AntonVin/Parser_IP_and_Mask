@@ -8,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Parser_Ip_and_Mask
 {
-    internal static class ClipBoardExtension
+    internal static class DataGridViewExtensions
     {
         public static void CopyDataColumns(this DataGridView dgv,int[] indexes)
         {
