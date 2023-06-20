@@ -13,9 +13,15 @@ namespace Parser_Ip_and_Mask
         public Form1()
         {
             InitializeComponent();
-            txtPath.Text = RegistrHelper.GetPath();
+            SetForm();
         }
 
+        private void SetForm()
+        {
+            txtPath.Text = RegistrHelper.GetPath();
+            dgvResult.EnableHeadersVisualStyles = false;
+            dgvResult.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
+        }
         private void btnStart_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(txtPath.Text))

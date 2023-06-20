@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStart = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
@@ -93,18 +94,20 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Gigi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblResult.Location = new System.Drawing.Point(12, 8);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(60, 15);
+            this.lblResult.Size = new System.Drawing.Size(82, 21);
             this.lblResult.TabIndex = 4;
             this.lblResult.Text = "Результат";
             // 
             // lblLog
             // 
             this.lblLog.AutoSize = true;
+            this.lblLog.Font = new System.Drawing.Font("Gigi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLog.Location = new System.Drawing.Point(738, 9);
             this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(27, 15);
+            this.lblLog.Size = new System.Drawing.Size(36, 21);
             this.lblLog.TabIndex = 5;
             this.lblLog.Text = "Лог";
             // 
@@ -141,6 +144,8 @@
             // 
             // Station
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.Station.DefaultCellStyle = dataGridViewCellStyle1;
             this.Station.HeaderText = "Станция";
             this.Station.Name = "Station";
             this.Station.Width = 110;
@@ -195,7 +200,7 @@
             this.grpBox_Columns.Size = new System.Drawing.Size(720, 34);
             this.grpBox_Columns.TabIndex = 9;
             this.grpBox_Columns.TabStop = false;
-            this.grpBox_Columns.Text = "Столбцы для копирования";
+            this.grpBox_Columns.Text = "Выбрать столбцы для копирования";
             // 
             // chBox_Shutdown
             // 
@@ -298,12 +303,6 @@
         private Label lblPath;
         private DataGridView dgvResult;
         private Button btnCopy;
-        private DataGridViewTextBoxColumn Station;
-        private DataGridViewTextBoxColumn interfaceName;
-        private DataGridViewTextBoxColumn IP;
-        private DataGridViewTextBoxColumn Mask;
-        private DataGridViewTextBoxColumn vrf;
-        private DataGridViewTextBoxColumn shutdown;
         private GroupBox grpBox_Columns;
         private CheckBox chBox_Shutdown;
         private CheckBox chBox_VRF;
@@ -312,5 +311,11 @@
         private CheckBox chBox_Interface;
         private CheckBox chBox_Station;
         private Button btnOpenFD;
+        private DataGridViewTextBoxColumn Station;
+        private DataGridViewTextBoxColumn interfaceName;
+        private DataGridViewTextBoxColumn IP;
+        private DataGridViewTextBoxColumn Mask;
+        private DataGridViewTextBoxColumn vrf;
+        private DataGridViewTextBoxColumn shutdown;
     }
 }
