@@ -21,11 +21,14 @@ namespace Parser_Ip_and_Mask
                     var index = indexes[i];
                     s +=row.Cells[index].Value.ToString()+"\t";
                 }
-                sb.AppendLine(s.Trim());
+                sb.AppendLine(s[0..^1]);
             }
-            var text = sb.ToString().Trim();
-            if(!string.IsNullOrWhiteSpace(text))
+            var text = sb.ToString();
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                Clipboard.Clear();
                 Clipboard.SetText(text);
+            }
         }
     }
 }
