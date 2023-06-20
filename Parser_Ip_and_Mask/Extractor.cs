@@ -24,22 +24,12 @@ namespace Parser_Ip_and_Mask
                     else
                     {
                         FillTableFromFile(dgv, dir, lastFile);
-                        //   var matches = ParseFromFile(lastFile, 
-                        //       $@"forwarding\s+{vrf}\s+ip\s+address\s(?<ip>\d+.\d+.\d+.\d+)\s+(?<mask>\d+.\d+.\d+.\d+)");
-                        //   foreach (Match match in matches)
-                        //   {
-                        //       dgv.Rows.Add(
-                        //           dir.Split("\\")[^1],// имя станции
-                        //           match.Groups["ip"].Value,
-                        //           match.Groups["mask"].Value
-                        //       );
-                        //   }
                     }
                 }
             }
         }
 
-        private static void FillTableFromFile(DataGridView dgv, string dir, string? lastFile)
+        private static void FillTableFromFile(DataGridView dgv, string dir, string lastFile)
         {
             string nameStation = dir.Split("\\")[^1];
 
@@ -118,15 +108,5 @@ namespace Parser_Ip_and_Mask
             Directory.GetFiles(dir, pattern).
                         Where(f => !f.Contains("SM")).
                         MaxBy(f => File.GetLastWriteTime(f));
-
-        //private static MatchCollection ParseFromFile(string fileName,string regularExpr)
-        //{
-        //    using (var reader = new StreamReader(fileName))
-        //    {
-        //        string content = reader.ReadToEnd();
-        //        var reg = new Regex(regularExpr);
-        //        return reg.Matches(content);
-        //    }
-        //}
     }
 }

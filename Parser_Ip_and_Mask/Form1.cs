@@ -15,6 +15,11 @@ namespace Parser_Ip_and_Mask
 
         private void btnStart_Click(object sender, EventArgs e)
         { 
+            if(!Directory.Exists(txtPath.Text))
+            {
+                MessageBox.Show("Такой папки не существует","ОШИБКА",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             Clear();
             Extractor.ExtractDataToTable(txtPath.Text,dgvResult,txtLog);
         }
@@ -27,8 +32,21 @@ namespace Parser_Ip_and_Mask
 
         private void btnCopy_Click(object sender, EventArgs e)
         {
-            var indexesColumns = new int[] { 1, 2 };
-            dgvResult.CopyDataColumns(indexesColumns);
+            var indexesColumns = new List<int>();
+            if (chBox_Station.Checked) indexesColumns.Add(0);
+            if (chBox_Interface.Checked) indexesColumns.Add(1);
+            if (chBox_IP.Checked) indexesColumns.Add(2);
+            if (chBox_Mask.Checked) indexesColumns.Add(3);
+            if (chBox_VRF.Checked) indexesColumns.Add(4);
+            if (chBox_Shutdown.Checked) indexesColumns.Add(5);
+            dgvResult.CopyDataColumns(indexesColumns.ToArray());
+        }
+
+        private void btnOpenFD_Click(object sender, EventArgs e)
+        {
+            var folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                txtPath.Text = folderBrowserDialog.SelectedPath;
         }
     }
 }

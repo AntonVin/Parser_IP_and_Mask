@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStart = new System.Windows.Forms.Button();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.txtPath = new System.Windows.Forms.TextBox();
@@ -42,14 +43,23 @@
             this.vrf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shutdown = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.grpBox_Columns = new System.Windows.Forms.GroupBox();
+            this.chBox_Shutdown = new System.Windows.Forms.CheckBox();
+            this.chBox_VRF = new System.Windows.Forms.CheckBox();
+            this.chBox_Mask = new System.Windows.Forms.CheckBox();
+            this.chBox_IP = new System.Windows.Forms.CheckBox();
+            this.chBox_Interface = new System.Windows.Forms.CheckBox();
+            this.chBox_Station = new System.Windows.Forms.CheckBox();
+            this.btnOpenFD = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
+            this.grpBox_Columns.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
             this.btnStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStart.Location = new System.Drawing.Point(12, 533);
+            this.btnStart.Location = new System.Drawing.Point(12, 535);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(1198, 58);
             this.btnStart.TabIndex = 1;
@@ -63,27 +73,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLog.ForeColor = System.Drawing.Color.Red;
-            this.txtLog.Location = new System.Drawing.Point(711, 40);
+            this.txtLog.Location = new System.Drawing.Point(738, 39);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(499, 403);
+            this.txtLog.Size = new System.Drawing.Size(483, 441);
             this.txtLog.TabIndex = 2;
             // 
             // txtPath
             // 
             this.txtPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPath.Location = new System.Drawing.Point(12, 460);
+            this.txtPath.Location = new System.Drawing.Point(12, 502);
             this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(1198, 23);
+            this.txtPath.Size = new System.Drawing.Size(1148, 23);
             this.txtPath.TabIndex = 3;
             this.txtPath.Text = "D:\\Tasks\\Task2\\BackUpCisco";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(12, 16);
+            this.lblResult.Location = new System.Drawing.Point(12, 8);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(60, 15);
             this.lblResult.TabIndex = 4;
@@ -92,7 +102,7 @@
             // lblLog
             // 
             this.lblLog.AutoSize = true;
-            this.lblLog.Location = new System.Drawing.Point(798, 16);
+            this.lblLog.Location = new System.Drawing.Point(738, 9);
             this.lblLog.Name = "lblLog";
             this.lblLog.Size = new System.Drawing.Size(27, 15);
             this.lblLog.TabIndex = 5;
@@ -103,7 +113,7 @@
             this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(12, 441);
+            this.lblPath.Location = new System.Drawing.Point(12, 483);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(74, 15);
             this.lblPath.TabIndex = 6;
@@ -122,24 +132,24 @@
             this.Mask,
             this.vrf,
             this.shutdown});
-            this.dgvResult.Location = new System.Drawing.Point(1, 41);
+            this.dgvResult.Location = new System.Drawing.Point(12, 65);
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.RowHeadersVisible = false;
             this.dgvResult.RowTemplate.Height = 25;
-            this.dgvResult.Size = new System.Drawing.Size(704, 402);
+            this.dgvResult.Size = new System.Drawing.Size(720, 415);
             this.dgvResult.TabIndex = 7;
             // 
             // Station
             // 
             this.Station.HeaderText = "Станция";
             this.Station.Name = "Station";
-            this.Station.Width = 150;
+            this.Station.Width = 110;
             // 
             // interfaceName
             // 
             this.interfaceName.HeaderText = "Имя интерфейса";
             this.interfaceName.Name = "interfaceName";
-            this.interfaceName.Width = 150;
+            this.interfaceName.Width = 180;
             // 
             // IP
             // 
@@ -160,22 +170,107 @@
             // 
             this.shutdown.HeaderText = "Shutdown";
             this.shutdown.Name = "shutdown";
+            this.shutdown.Width = 105;
             // 
             // btnCopy
             // 
-            this.btnCopy.Location = new System.Drawing.Point(116, 12);
+            this.btnCopy.Location = new System.Drawing.Point(287, 0);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(197, 23);
             this.btnCopy.TabIndex = 8;
-            this.btnCopy.Text = "Копировать IP и маску";
+            this.btnCopy.Text = "Копировать данные";
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
+            // 
+            // grpBox_Columns
+            // 
+            this.grpBox_Columns.Controls.Add(this.chBox_Shutdown);
+            this.grpBox_Columns.Controls.Add(this.chBox_VRF);
+            this.grpBox_Columns.Controls.Add(this.chBox_Mask);
+            this.grpBox_Columns.Controls.Add(this.chBox_IP);
+            this.grpBox_Columns.Controls.Add(this.chBox_Interface);
+            this.grpBox_Columns.Controls.Add(this.chBox_Station);
+            this.grpBox_Columns.Location = new System.Drawing.Point(12, 26);
+            this.grpBox_Columns.Name = "grpBox_Columns";
+            this.grpBox_Columns.Size = new System.Drawing.Size(720, 34);
+            this.grpBox_Columns.TabIndex = 9;
+            this.grpBox_Columns.TabStop = false;
+            this.grpBox_Columns.Text = "Столбцы для копирования";
+            // 
+            // chBox_Shutdown
+            // 
+            this.chBox_Shutdown.AutoSize = true;
+            this.chBox_Shutdown.Location = new System.Drawing.Point(594, 13);
+            this.chBox_Shutdown.Name = "chBox_Shutdown";
+            this.chBox_Shutdown.Size = new System.Drawing.Size(15, 14);
+            this.chBox_Shutdown.TabIndex = 5;
+            this.chBox_Shutdown.UseVisualStyleBackColor = true;
+            // 
+            // chBox_VRF
+            // 
+            this.chBox_VRF.AutoSize = true;
+            this.chBox_VRF.Location = new System.Drawing.Point(496, 13);
+            this.chBox_VRF.Name = "chBox_VRF";
+            this.chBox_VRF.Size = new System.Drawing.Size(15, 14);
+            this.chBox_VRF.TabIndex = 4;
+            this.chBox_VRF.UseVisualStyleBackColor = true;
+            // 
+            // chBox_Mask
+            // 
+            this.chBox_Mask.AutoSize = true;
+            this.chBox_Mask.Location = new System.Drawing.Point(397, 13);
+            this.chBox_Mask.Name = "chBox_Mask";
+            this.chBox_Mask.Size = new System.Drawing.Size(15, 14);
+            this.chBox_Mask.TabIndex = 3;
+            this.chBox_Mask.UseVisualStyleBackColor = true;
+            // 
+            // chBox_IP
+            // 
+            this.chBox_IP.AutoSize = true;
+            this.chBox_IP.Location = new System.Drawing.Point(296, 13);
+            this.chBox_IP.Name = "chBox_IP";
+            this.chBox_IP.Size = new System.Drawing.Size(15, 14);
+            this.chBox_IP.TabIndex = 2;
+            this.chBox_IP.UseVisualStyleBackColor = true;
+            // 
+            // chBox_Interface
+            // 
+            this.chBox_Interface.AutoSize = true;
+            this.chBox_Interface.Location = new System.Drawing.Point(121, 13);
+            this.chBox_Interface.Name = "chBox_Interface";
+            this.chBox_Interface.Size = new System.Drawing.Size(15, 14);
+            this.chBox_Interface.TabIndex = 1;
+            this.chBox_Interface.UseVisualStyleBackColor = true;
+            // 
+            // chBox_Station
+            // 
+            this.chBox_Station.AutoSize = true;
+            this.chBox_Station.Location = new System.Drawing.Point(6, 13);
+            this.chBox_Station.Name = "chBox_Station";
+            this.chBox_Station.Size = new System.Drawing.Size(15, 14);
+            this.chBox_Station.TabIndex = 0;
+            this.chBox_Station.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenFD
+            // 
+            this.btnOpenFD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenFD.BackColor = System.Drawing.SystemColors.Control;
+            this.btnOpenFD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOpenFD.BackgroundImage")));
+            this.btnOpenFD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnOpenFD.Location = new System.Drawing.Point(1166, 495);
+            this.btnOpenFD.Name = "btnOpenFD";
+            this.btnOpenFD.Size = new System.Drawing.Size(52, 34);
+            this.btnOpenFD.TabIndex = 10;
+            this.btnOpenFD.UseVisualStyleBackColor = false;
+            this.btnOpenFD.Click += new System.EventHandler(this.btnOpenFD_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 604);
+            this.ClientSize = new System.Drawing.Size(1222, 605);
+            this.Controls.Add(this.btnOpenFD);
+            this.Controls.Add(this.grpBox_Columns);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.lblPath);
@@ -187,6 +282,8 @@
             this.Name = "Form1";
             this.Text = "Парсер IP и маски";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
+            this.grpBox_Columns.ResumeLayout(false);
+            this.grpBox_Columns.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +304,13 @@
         private DataGridViewTextBoxColumn Mask;
         private DataGridViewTextBoxColumn vrf;
         private DataGridViewTextBoxColumn shutdown;
+        private GroupBox grpBox_Columns;
+        private CheckBox chBox_Shutdown;
+        private CheckBox chBox_VRF;
+        private CheckBox chBox_Mask;
+        private CheckBox chBox_IP;
+        private CheckBox chBox_Interface;
+        private CheckBox chBox_Station;
+        private Button btnOpenFD;
     }
 }
