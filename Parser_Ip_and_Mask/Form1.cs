@@ -16,7 +16,7 @@ namespace Parser_Ip_and_Mask
         private void btnStart_Click(object sender, EventArgs e)
         { 
             Clear();
-            Extractor.ExtractIpAndMask(txtPath.Text,dgvResult,txtLog,txtVrfForwarding.Text);
+            Extractor.ExtractDataToTable(txtPath.Text,dgvResult,txtLog);
         }
 
         private void Clear()
